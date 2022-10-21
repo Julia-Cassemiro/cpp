@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Schedule.hpp                                       :+:      :+:    :+:   */
+/*   Contacts.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 19:50:58 by coder             #+#    #+#             */
-/*   Updated: 2022/10/06 19:53:07 by coder            ###   ########.fr       */
+/*   Created: 2022/10/06 16:53:01 by jgomes-c          #+#    #+#             */
+/*   Updated: 2022/10/06 16:53:01 by jgomes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCHEDULE_HPP
-# define SCHEDULE_HPP
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include "Contact.hpp"
 
-class Schedule
+class Contacts;
 {
 	private:
-		Contact contacts[8];
-		int		amount;
+		int					index;
+		static std::string	names[11];
+		std::string		 	data;
 
-	public:
-		Schedule();
-		virtual ~Schedule();
-
-		void	show(void);
-		void	add(void);
-		void	search(void);
-		void	header(void);
+	
 }
-
-#endif
