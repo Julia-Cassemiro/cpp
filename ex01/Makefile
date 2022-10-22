@@ -10,14 +10,14 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= myphone
+SRCS			= main.cpp Phonebook.cpp Contact.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 COMP			= clang++
 RM				= rm -f
 C_FLAGS			= -Wall -Wextra -Werror -I.
 
-NAME			= megaphone
+NAME			= PhoneBook
 
 all:			$(NAME)
 

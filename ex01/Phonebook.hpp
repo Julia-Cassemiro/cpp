@@ -10,28 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCHEDULE_HPP
-# define SCHEDULE_HPP
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include "Contact.hpp"
+# include "Contact.hpp"
 
-class Schedule
+class Phonebook
 {
 	private:
 		Contact contacts[8];
 		int		amount;
 
 	public:
-		Schedule();
-		virtual ~Schedule();
+		Phonebook();
+		virtual ~Phonebook();
 
 		void	show(void);
 		void	add(void);
 		void	search(void);
 		void	header(void);
-}
+};
 
 #endif

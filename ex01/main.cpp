@@ -10,8 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Phonebook.hpp"
+
 int main(void)
 {
+	Phonebook Phonebook;
+	bool run;
+	std::string command;
+
+	Phonebook.show();
+	run = true;
+	while (run){
+		std::cout << ">";
+		std::getline(std::cin, command);
+		if (command == "ADD")
+			Phonebook.add();
+		else if (command == "SEARCH")
+			Phonebook.search();
+	}
 	
 	
 }
