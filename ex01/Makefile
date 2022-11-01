@@ -1,39 +1,19 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/01 09:52:40 by jgomes-c          #+#    #+#              #
-#    Updated: 2022/09/01 16:27:36 by jgomes-c         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
+RM = rm -rf
+NAME = phoneBook
 
-SRCS			= main.cpp Phonebook.cpp Contact.cpp
-OBJS			= $(SRCS:.cpp=.o)
+FILES = Contact.cpp Phonebook.cpp main.cpp
 
-COMP			= clang++
-RM				= rm -f
-C_FLAGS			= -Wall -Wextra -Werror -I.
+all: $(NAME)
 
-NAME			= PhoneBook
+$(NAME):
+	$(CC) $(CFLAGS) -o $(NAME) $(FILES)
 
-all:			$(NAME)
+run:
+	./$(NAME)
 
-$(NAME):		$(OBJS)
-				$(COMP) $(C_FLAGS) -o $(NAME) $(OBJS)
-
-
+valgrind:
+	valgrind ./$(NAME)
 clean:
-				$(RM) $(OBJS)
-
-
-fclean:			clean
-				$(RM) $(NAME)
-
-
-re:				fclean $(NAME)
-
-
-.PHONY:			all clean fclean re
+	$(RM) $(NAME)

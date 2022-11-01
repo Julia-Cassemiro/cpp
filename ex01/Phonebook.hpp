@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Schedule.hpp                                       :+:      :+:    :+:   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 19:50:58 by coder             #+#    #+#             */
-/*   Updated: 2022/10/06 19:53:07 by coder            ###   ########.fr       */
+/*   Created: 2022/10/31 21:13:59 by jgomes-c          #+#    #+#             */
+/*   Updated: 2022/10/31 21:13:59 by jgomes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef PHONE_BOOK_HPP
+# define PHONE_BOOK_HPP
 
+#include "Contact.hpp"
+#include <stdlib.h>
+#include <string>
 #include <iostream>
 #include <iomanip>
-#include <string>
-# include "Contact.hpp"
 
-class Phonebook
-{
-	private:
-		Contact contacts[8];
-		int		amount;
+class PhoneBook {
+public:
 
-	public:
-		Phonebook();
-		virtual ~Phonebook();
+	PhoneBook( void );
+	~PhoneBook( void );
 
-		void	show(void);
-		void	add(void);
-		void	search(void);
-		void	header(void);
+	void			printAllContacts();
+	void			searchContacts();
+	void			setNewContact();
+	void			setCurrentId(int id);
+
+	int				total;
+
+private:
+
+	Contact			_contacts[8];
+	int				_currentId;
 };
 
 #endif
