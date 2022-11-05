@@ -14,7 +14,7 @@
 #include <iostream>
 #include <cstring>
 #include "Contact.hpp"
-#include "Phonebook.hpp"
+#include "PhoneBook.hpp"
 
 int	main(void) {
 	std::string command;
