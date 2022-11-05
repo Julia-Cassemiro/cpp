@@ -3,7 +3,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
 RM = rm -rf
 NAME = phoneBook
 
-FILES = Contact.cpp Phonebook.cpp main.cpp
+FILES = Contact.cpp PhoneBook.cpp main.cpp
 
 all: $(NAME)
 
