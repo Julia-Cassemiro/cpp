@@ -28,7 +28,7 @@ public:
     const std::string getType(void) const;
     void setType(std::string type);
     virtual void makeSound(void) const = 0;
-    virtual Brain* getBrain(void) const = 0;
+    virtual Brain* getBrain(void) const = 0; //especificar pure
 
 protected:
     std::string type;
