@@ -48,6 +48,14 @@ public:
 	{
 		virtual const char *what(void) const throw();
 	};
+
+	class FormNotSignedException : public std::exception { //new 02
+		virtual const char* what( void ) const throw();
+	};
+
+	bool			maybeExecute( Bureaucrat const & executor ) const ; //new 02
+	virtual void	execute(Bureaucrat const & executor) const = 0; //new 02 need this for be a abstract class
+
 };
 
 std::ostream & operator<<( std::ostream & o, Form const & rhs );
