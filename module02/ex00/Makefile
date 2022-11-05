@@ -1,16 +1,16 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g #-fsanitize=address
 RM = rm -rf
-NAME = fixed
+NAME = Fixed
 
-FILES = Fixed.cpp main.cpp
+FILES = main.cpp Fixed.cpp
 
 all: $(NAME)
 
 $(NAME):
 	$(CC) $(CFLAGS) -o $(NAME) $(FILES)
 
-run:
+run: all
 	./$(NAME)
 
 valgrind:
@@ -18,3 +18,5 @@ valgrind:
 
 clean:
 	$(RM) $(NAME)
+
+re: clean all

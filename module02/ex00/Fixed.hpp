@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 21:32:38 by jgomes-c          #+#    #+#             */
-/*   Updated: 2022/11/02 21:32:38 by jgomes-c         ###   ########.fr       */
+/*   Created: 2022/11/05 16:11:18 by jgomes-c          #+#    #+#             */
+/*   Updated: 2022/11/05 16:11:18 by jgomes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ class Fixed {
 
 private:
 
-	int					_rawBit; //An integer to store the fixed-point number value
-	static const int	_bits; //A static constant integer to store the number of fractional bits. Its value will always be the integer literal 8.
+	int					_rawBit;
+	static const int	_bits;
 
 public:
 

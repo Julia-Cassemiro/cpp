@@ -17,7 +17,7 @@ Zombie::Zombie( void ) {
 }
 
 Zombie::~Zombie( void ) {
-	std::cout << this->_name << " Bye!" << std::endl;
+	std::cout << this->_name << ": Bye!" << std::endl;
 	return ;
 }
 
