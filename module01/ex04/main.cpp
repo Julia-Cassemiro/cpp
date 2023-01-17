@@ -50,7 +50,7 @@ int set_setup(std::string file, std::string rem, std::string rep) // he got the 
 
 	getInBuffer(inFile, inBuffer);
 	replaceStringOutBuffer(inBuffer, outBuffer, rem, rep);
-	if (openOut(outFile, file) == false) //cria o arquivo
+	if (openOut(outFile, file) == false) //create the file
 		return (false);
 
 	setDataOut(outFile, outBuffer); //copy the data inside the file
@@ -59,9 +59,9 @@ int set_setup(std::string file, std::string rem, std::string rep) // he got the 
 	return (true);
 }
 
-int openIn(std::ifstream &inFile, std::string file)
+int openIn(std::ifstream &inFile, std::string file) //open the file
 {
-	inFile.open(file.c_str(), std::ifstream::in);
+	inFile.open(file.c_str(), std::ifstream::in); //c_str => Returns a pointer to an array that contains a null-terminated sequence of characters , representing the current value of the string object.
 	if (inFile.is_open() == false)
 	{
 		inFile.close();

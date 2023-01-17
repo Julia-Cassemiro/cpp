@@ -45,6 +45,7 @@ void	Harl::_error( void ) {
 
 
 void	Harl::complain( std::string level ) {
+	//pointers to member functions
 	void ( Harl::*f[] ) ( void ) = { &Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error }; //decides the order
 	std::string	levels[] = { "DEBUG", "INFO", "WARNING", "ERROR" };
 
