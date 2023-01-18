@@ -13,20 +13,20 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void)
-	: _name(""), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+	: _name(""), _hitPoints(100), _energyPoints(50), _attackDamage(20)
 {
 	std::cout << "Default ClapTrap constructor called" << std::endl;
 	return;
 }
 
 ClapTrap::ClapTrap(std::string const &name)
-	: _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+	: _name(name), _hitPoints(100), _energyPoints(50), _attackDamage(20)
 {
 	std::cout << "Name ClapTrap constructor called" << std::endl;
 	return;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &clapTrap)
+ClapTrap::ClapTrap(const ClapTrap &clapTrap) : _name(""), _hitPoints(100), _energyPoints(50), _attackDamage(20)
 {
 	std::cout << "Copy ClapTrap constructor called" << std::endl;
 	*this = clapTrap;
@@ -102,7 +102,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	std::cout << " you received " << amount << " points of damage, now ";
 	if (this->_hitPoints <= 0)
 	{
-		std::cout << "YOU IS DEAD" << std::endl;
+		std::cout << ".... sorry, YOU IS DEAD" << std::endl;
 		return;
 	}
 	std::cout << "getting " << this->_hitPoints << " health!" << std::endl;

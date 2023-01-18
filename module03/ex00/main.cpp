@@ -14,10 +14,10 @@
 #include "ClapTrap.hpp"
 
 int	main( void ) {
-	ClapTrap art( "Julia" );
+	ClapTrap game( "Julia" );
 
-	art.attack( "Caio" );
-	art.takeDamage( 3 );
-	art.beRepaired( 3 );
+	game.attack( "Caio" );
+	game.takeDamage( 3 );
+	game.beRepaired( 3 );
 	return ( 0 );
 }

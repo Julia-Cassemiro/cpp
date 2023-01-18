@@ -18,7 +18,7 @@
 
 class ClapTrap {
 
-private:
+private: 
 	
 	std::string	_name;
 	int			_hitPoints;

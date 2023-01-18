@@ -13,14 +13,14 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void)
-	: _name(""), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+	: _name(""), _hitPoints(100), _energyPoints(100), _attackDamage(30)
 {
 	std::cout << "Default ClapTrap constructor called" << std::endl;
 	return;
 }
 
 ClapTrap::ClapTrap(std::string const &name)
-	: _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+	: _name(name), _hitPoints(100), _energyPoints(100), _attackDamage(30)
 {
 	std::cout << "Name ClapTrap constructor called" << std::endl;
 	return;
