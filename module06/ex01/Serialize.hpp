@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Serialize.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 18:14:43 by jgomes-c          #+#    #+#             */
-/*   Updated: 2022/11/04 18:14:43 by jgomes-c         ###   ########.fr       */
+/*   Created: 2023/01/21 03:12:34 by jgomes-c          #+#    #+#             */
+/*   Updated: 2023/01/21 03:12:34 by jgomes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef		SERIALIZE_HPP_
+# define	SERIALIZE_HPP_
 
 #include <iostream>
-#include <string>
+#include <stdint.h>
 
-class Animal
-{
-public:
-	Animal();
-	Animal(Animal const &src);
-	virtual ~Animal();
+typedef struct s_data {
+	int	value;
+} Data;
 
-	Animal &operator=(Animal const &rhs);
-	const std::string getType(void) const;
-	void setType(const std::string type);
-	virtual void makeSound(void) const; //virtual ==> method can be overridden by child
 
-protected:
-	std::string type;
-};
+
+uintptr_t	serialize( Data* ptr ); //It takes a pointer and converts it to the unsigned integer type uintptr_t.
+Data*		deserialize( uintptr_t raw ); //It takes an unsigned integer parameter and converts it to a pointer to Data.
 
 #endif
