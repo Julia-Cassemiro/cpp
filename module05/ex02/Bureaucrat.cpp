@@ -5,11 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 03:18:02 by jgomes-c          #+#    #+#             */
-/*   Updated: 2023/01/22 03:18:02 by jgomes-c         ###   ########.fr       */
+/*   Created: 2022/11/04 23:20:52 by lpaulo-d          #+#    #+#             */
+/*   Updated: 2023/03/03 02:20:47 by jgomes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "Bureaucrat.hpp"
 
@@ -63,4 +62,25 @@ const char* Bureaucrat::GradeTooLowException::what( void ) const throw() {
 std::ostream & operator<<( std::ostream& o, Bureaucrat const & rhs ) {
 	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;
 	return ( o );
+}
+
+void Bureaucrat::signAForm( AForm& Aform ) {
+	try {
+		Aform.beSigned( *this );
+		std::cout << this->_name << " signed " << Aform.getName() << std::endl;
+	} catch( std::exception & e ) {
+		std::cout << this->_name << " couldn't sign " << Aform.getName()
+			<< " because " << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::executeAForm( AForm const& Aform ) {
+	try {
+		Aform.execute( *this );
+		std::cout << this->_name << " executed " << Aform.getName() << std::endl;
+	}
+	catch ( std::exception& e ) {
+		std::cout << this->_name << " could not execute " << Aform.getName() <<
+			" because " << e.what() << std::endl;
+	}
 }

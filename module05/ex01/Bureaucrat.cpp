@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 03:18:02 by jgomes-c          #+#    #+#             */
-/*   Updated: 2023/01/22 03:18:02 by jgomes-c         ###   ########.fr       */
+/*   Created: 2023/01/22 03:19:38 by jgomes-c          #+#    #+#             */
+/*   Updated: 2023/03/03 02:10:28 by jgomes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,14 @@ const char* Bureaucrat::GradeTooLowException::what( void ) const throw() {
 std::ostream & operator<<( std::ostream& o, Bureaucrat const & rhs ) {
 	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;
 	return ( o );
+}
+
+void Bureaucrat::signForm( Form& form ) {
+	try {
+		form.beSigned( *this );
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	} catch( std::exception & e ) {
+		std::cout << this->_name << " couldn't sign " << form.getName()
+			<< " because " << e.what() << std::endl;
+	}
 }

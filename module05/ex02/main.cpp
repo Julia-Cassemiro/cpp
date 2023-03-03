@@ -5,39 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 11:58:00 by jgomes-c          #+#    #+#             */
-/*   Updated: 2022/11/05 11:58:00 by jgomes-c         ###   ########.fr       */
+/*   Created: 2022/11/04 23:38:48 by lpaulo-d          #+#    #+#             */
+/*   Updated: 2023/03/03 02:40:06 by jgomes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-#include "./ex01/ex00/Bureaucrat.hpp"
+#include "Bureaucrat.hpp"
 
-int main(void)
+int	main( void )
 {
 	std::cout << std::endl;
 	std::cout << "Execução Shrubberry! " << std::endl;
 	std::cout << std::endl;
 	std::cout << std::endl;
-	try
-	{
-		std::cout << "SUCCESS\n" << std::endl;
-		ShrubberyCreationForm form("Cool");
-		Bureaucrat grade = Bureaucrat("Mr: Rossa", 1);
-		form.beSigned(grade);
-		form.execute(grade);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
 	try {
-		std::cout << "FAIL TEST" << std::endl;
-		ShrubberyCreationForm form("Juju");
-		Bureaucrat grade = Bureaucrat("Mr: RossRoss", 150);
+		std::cout << "Esse vai da bom!" << std::endl;
+		ShrubberyCreationForm form("Home");
+		Bureaucrat grade = Bureaucrat("Grey", 1);
 		form.beSigned(grade);
 		form.execute( grade );
 	} catch ( std::exception & e) {
@@ -45,20 +32,40 @@ int main(void)
 	}
 	std::cout << std::endl;
 	try {
-		std::cout << "FAIL TEST!" << std::endl;
+		std::cout << "Esse vai da bom!" << std::endl;
 		ShrubberyCreationForm form("Grey");
-		Bureaucrat grade = Bureaucrat("Mr: Ross", 1);
+		Bureaucrat grade = Bureaucrat("Grey", 1);
+		form.beSigned(grade);
+		grade.executeAForm( form );
+	} catch ( std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	try {
+		std::cout << "Esse vai da ruim!" << std::endl;
+		ShrubberyCreationForm form("Tess");
+		Bureaucrat grade = Bureaucrat("Grey", 150);
+		form.beSigned(grade);
 		form.execute( grade );
 	} catch ( std::exception & e) {
 		std::cout << e.what() << std::endl;
 	}
 	std::cout << std::endl;
 	try {
-		std::cout << "FAIL TEST!" << std::endl;
+		std::cout << "Esse vai da ruim!" << std::endl;
 		ShrubberyCreationForm form("Grey");
-		Bureaucrat grade = Bureaucrat("Mr: Ross", 150);
+		Bureaucrat grade = Bureaucrat("Grey", 1);
+		form.execute( grade );
+	} catch ( std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	try {
+		std::cout << "Esse vai da ruim!" << std::endl;
+		ShrubberyCreationForm form("Grey");
+		Bureaucrat grade = Bureaucrat("Grey", 150);
 		form.beSigned(grade);
-		grade.executeForm( form );
+		grade.executeAForm( form );
 	} catch ( std::exception & e) {
 		std::cout << e.what() << std::endl;
 	}
@@ -69,19 +76,19 @@ int main(void)
 	std::cout << std::endl;
 	std::cout << std::endl;
 	try {
-		std::cout << "50/50" << std::endl;
-		RobotomyRequestForm form("Monica");
-		Bureaucrat grade = Bureaucrat("Mr: Ross", 1);
+		std::cout << "Esse talvez vai da bom!" << std::endl;
+		RobotomyRequestForm form("Robo");
+		Bureaucrat grade = Bureaucrat("Grey", 1);
 		form.beSigned(grade);
-		grade.executeForm( form );
+		grade.executeAForm( form );
 	} catch ( std::exception & e) {
 		std::cout << e.what() << std::endl;
 	}
 	std::cout << std::endl;
 	try {
-		std::cout << "50/50" << std::endl;
-		RobotomyRequestForm form("Monica");
-		Bureaucrat grade = Bureaucrat("Mr: Ross", 1);
+		std::cout << "Esse talvez vai da bom!" << std::endl;
+		RobotomyRequestForm form("Robo");
+		Bureaucrat grade = Bureaucrat("Grey", 1);
 		form.beSigned(grade);
 		form.execute( grade );
 	} catch ( std::exception & e) {
@@ -89,9 +96,9 @@ int main(void)
 	}
 	std::cout << std::endl;
 	try {
-		std::cout << "FAIL TEST!" << std::endl;
-		RobotomyRequestForm form("Monica");
-		Bureaucrat grade = Bureaucrat("Mr: Ross", 150);
+		std::cout << "Esse vai da ruim!" << std::endl;
+		RobotomyRequestForm form("Robo");
+		Bureaucrat grade = Bureaucrat("Grey", 150);
 		form.beSigned(grade);
 		form.execute( grade );
 	} catch ( std::exception & e) {
@@ -99,11 +106,11 @@ int main(void)
 	}
 	std::cout << std::endl;
 	try {
-		std::cout << "FAIL TEST!" << std::endl;
-		RobotomyRequestForm form("Monica");
-		Bureaucrat grade = Bureaucrat("Mr: Ross", 150);
+		std::cout << "Esse vai da ruim!" << std::endl;
+		RobotomyRequestForm form("Robo");
+		Bureaucrat grade = Bureaucrat("Grey", 150);
 		form.beSigned(grade);
-		grade.executeForm( form );
+		grade.executeAForm( form );
 	} catch ( std::exception & e) {
 		std::cout << e.what() << std::endl;
 	}
@@ -115,19 +122,19 @@ int main(void)
 	std::cout << std::endl;
 	
 	try {
-		std::cout << "SUCCESS" << std::endl;
-		PresidentialPardonForm form("Chandler");
-		Bureaucrat grade = Bureaucrat("Mr: Ross", 1);
+		std::cout << "Esse vai da bom!" << std::endl;
+		PresidentialPardonForm form("Pardon");
+		Bureaucrat grade = Bureaucrat("Grey", 1);
 		form.beSigned(grade);
-		grade.executeForm( form );
+		grade.executeAForm( form );
 	} catch ( std::exception & e) {
 		std::cout << e.what() << std::endl;
 	}
 	std::cout << std::endl;
 	try {
-		std::cout << "SUCCESS" << std::endl;
-		PresidentialPardonForm form("Chandler");
-		Bureaucrat grade = Bureaucrat("Mr: Ross", 1);
+		std::cout << "Esse vai da bom!" << std::endl;
+		PresidentialPardonForm form("Pardon");
+		Bureaucrat grade = Bureaucrat("Grey", 1);
 		form.beSigned(grade);
 		form.execute( grade );
 	} catch ( std::exception & e) {
@@ -135,9 +142,9 @@ int main(void)
 	}
 	std::cout << std::endl;
 	try {
-		std::cout << "FAIL!!" << std::endl;
-		PresidentialPardonForm form("Chandler");
-		Bureaucrat grade = Bureaucrat("Mr: Ross", 150);
+		std::cout << "Esse vai da ruimmm!" << std::endl;
+		PresidentialPardonForm form("Pardon");
+		Bureaucrat grade = Bureaucrat("Grey", 150);
 		form.beSigned(grade);
 		form.execute( grade );
 	} catch ( std::exception & e) {
@@ -145,11 +152,11 @@ int main(void)
 	}
 	std::cout << std::endl;
 		try {
-		std::cout << "FAIL!!" << std::endl;
-		PresidentialPardonForm form("Chandler");
-		Bureaucrat grade = Bureaucrat("Mr: Ross", 150);
+		std::cout << "Esse vai da ruimmm!" << std::endl;
+		PresidentialPardonForm form("Pardon");
+		Bureaucrat grade = Bureaucrat("Grey", 150);
 		form.beSigned(grade);
-		grade.executeForm( form );
+		grade.executeAForm( form );
 	} catch ( std::exception & e) {
 		std::cout << e.what() << std::endl;
 	}

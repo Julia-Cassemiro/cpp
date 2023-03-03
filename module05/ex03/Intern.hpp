@@ -5,43 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 14:35:36 by jgomes-c          #+#    #+#             */
-/*   Updated: 2022/11/05 14:35:36 by jgomes-c         ###   ########.fr       */
+/*   Created: 2022/11/05 14:34:23 by lpaulo-d          #+#    #+#             */
+/*   Updated: 2023/03/03 02:51:19 by jgomes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERN_HPP
-# define INTERN_HPP
+#ifndef INTERN_HPP_
+#define INTERN_HPP_
 
-#include "./ex02/PresidentialPardonForm.hpp"
-#include "./ex02/RobotomyRequestForm.hpp"
-#include "./ex02/ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 class Intern {
+	public:
+		Intern( void );
+		Intern( Intern const & rhs );
+		~Intern();
+		Intern& operator=( Intern const & rhs );
 
-private:
+		AForm* makeForm( std::string formName, std::string target );
+		class FormUnknown : public std::exception {
+			virtual const char* what( void ) const throw();
+		};
+		class NoTarget : public std::exception {
+			virtual const char* what( void ) const throw();
+		};
 
-	Form * _presidential( std::string target );
-	Form * _robotomy( std::string target );
-	Form * _shrubbery( std::string target );
-	Form * _unknown( std::string target );
-
-public:
-
-	Intern( void );
-	Intern( Intern const & rhs );
-	~Intern();
-	Intern & operator=( Intern const & rhs );
-
-	Form * makeForm( std::string formName, std::string target );
-
-	class FormDontExist : public std::exception {
-		virtual const char* what( void ) const throw();
-	};
-
-	class TargetDontExist : public std::exception {
-		virtual const char* what( void ) const throw();
-	};
+	private:
+		AForm* _presidential( std::string target );
+		AForm* _robotomy( std::string target );
+		AForm* _shrubbery( std::string target );
+		AForm* _unknown( std::string target );
 };
 
 #endif

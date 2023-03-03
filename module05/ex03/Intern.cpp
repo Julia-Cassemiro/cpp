@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 14:36:33 by jgomes-c          #+#    #+#             */
-/*   Updated: 2022/11/05 14:36:33 by jgomes-c         ###   ########.fr       */
+/*   Created: 2022/11/05 14:34:23 by lpaulo-d          #+#    #+#             */
+/*   Updated: 2023/03/03 02:47:31 by jgomes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,48 +26,48 @@ Intern::~Intern() {
 }
 
 Intern &Intern::operator=( Intern const & rhs ) {
-	*this = rhs;
+	(void)rhs;
 	return ( *this );
 }
 
-Form * Intern::_presidential( std::string target ) {
-	Form * form = new PresidentialPardonForm(target);
+AForm * Intern::_presidential( std::string target ) {
+	AForm * form = new PresidentialPardonForm(target);
 	std::cout << "Intern creates " << form->getName() << std::endl;
 	return ( form );
 }
 
-Form * Intern::_robotomy( std::string target ) {
-	Form * form = new RobotomyRequestForm(target);
+AForm * Intern::_robotomy( std::string target ) {
+	AForm * form = new RobotomyRequestForm(target);
 	std::cout << "Intern creates " << form->getName() << std::endl;
 	return ( form );
 }
-Form * Intern::_shrubbery( std::string target ) {
-	Form * form = new ShrubberyCreationForm(target);
+AForm * Intern::_shrubbery( std::string target ) {
+	AForm * form = new ShrubberyCreationForm(target);
 	std::cout << "Intern creates " << form->getName() << std::endl;
 	return ( form );
 }
 
-Form * Intern::_unknown( std::string target ) {
+AForm * Intern::_unknown( std::string target ) {
 	(void)target;
-	throw FormDontExist();
+	throw FormUnknown();
 	return (NULL);
 }
 
-const char* Intern::FormDontExist::what( void ) const throw() {
+const char* Intern::FormUnknown::what( void ) const throw() {
 	return ( "Form Unknown!!" );
 }
 
-const char* Intern::TargetDontExist::what( void ) const throw() {
+const char* Intern::NoTarget::what( void ) const throw() {
 	return ( "No target passed!!" );
 }
 
-Form * Intern::makeForm( std::string formName, std::string target ) {
+AForm * Intern::makeForm( std::string formName, std::string target ) {
 	if (target.empty())
 	{
-		throw TargetDontExist();
+		throw NoTarget();
 		return ( NULL );
 	}
-	Form * ( Intern::*f[] ) ( std::string ) = { &Intern::_presidential, &Intern::_robotomy, &Intern::_shrubbery, &Intern::_unknown };
+	AForm * ( Intern::*f[] ) ( std::string ) = { &Intern::_presidential, &Intern::_robotomy, &Intern::_shrubbery, &Intern::_unknown };
 	std::string forms[] = { "presidential pardon", "robotomy request", "shrubbery creation" };
 	for (int i = 0; i < 3; i++)
 		if (forms[i] == formName)

@@ -37,5 +37,13 @@ int main(void)
 
 	data_ptr = deserialize(raw);
 	std::cout << "Deserialize address: " << data_ptr << std::endl;
+
+	if(data_ptr == &data){
+		std::cout << "TRUE! ITS EQUAL"  << std::endl;
+	}
+	else{
+		std::cout << "FALSE! ITS NOT EQUAL" << std::endl;
+
+	}
 	return 0;
 }

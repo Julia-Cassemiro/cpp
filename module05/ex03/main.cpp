@@ -5,77 +5,67 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 14:37:49 by jgomes-c          #+#    #+#             */
-/*   Updated: 2022/11/05 14:37:49 by jgomes-c         ###   ########.fr       */
+/*   Created: 2022/11/04 23:38:48 by lpaulo-d          #+#    #+#             */
+/*   Updated: 2023/03/03 02:51:48 by jgomes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
-#include "./ex02/ex01/Form.hpp"
+#include "AForm.hpp"
 
-int	main( void )
+int main(void)
 {
 	{
-		std::cout << " ** TEST FORM ROBOTOMY ** \n" << std::endl;
-
-		Intern Intern;
-		Form* form;
-		form = Intern.makeForm("robotomy request", "Julia");
-		Bureaucrat grade = Bureaucrat("Caio", 1);
-		form->beSigned( grade );
-		grade.executeForm( *form );
-		delete form;
+		Intern someRandomIntern;
+		AForm *rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		Bureaucrat grade = Bureaucrat("Grey", 1);
+		rrf->beSigned(grade);
+		grade.executeAForm(*rrf);
+		delete rrf;
 	}
-	std::cout << std::endl;
-	std::cout << std::endl;
 	std::cout << std::endl;
 	{
-		std::cout << " ** TEST FORM PRESIDENTIAL ** \n" << std::endl;
-		Intern Intern;
-		Form* form;
-		form = Intern.makeForm("presidential pardon", "Julia");
-		Bureaucrat grade = Bureaucrat("Caio", 1);
-		form->beSigned( grade );
-		form->execute( grade );
-		delete form;
+		Intern someRandomIntern;
+		AForm *rrf;
+		rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+		Bureaucrat grade = Bureaucrat("Grey", 1);
+		rrf->beSigned(grade);
+		rrf->execute(grade);
+		delete rrf;
 	}
-	std::cout << std::endl;
-	std::cout << std::endl;
 	std::cout << std::endl;
 	{
-		std::cout << " ** TEST FORM SHRUBBERY ** \n" << std::endl;
-		Intern Intern;
-		Form* form;
-		form = Intern.makeForm("shrubbery creation", "Julia");
-		Bureaucrat grade = Bureaucrat("Caio", 1);
-		form->beSigned( grade );
-		form->execute( grade );
-		delete form;
+		Intern someRandomIntern;
+		AForm *rrf;
+		rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+		Bureaucrat grade = Bureaucrat("Grey", 1);
+		rrf->beSigned(grade);
+		rrf->execute(grade);
+		delete rrf;
 	}
 	std::cout << std::endl;
-	std::cout << std::endl;
-	std::cout << std::endl;
-	try	{
-		std::cout << " ** TEST UNKNOWN FORM **\n" << std::endl;
-
-		Intern Intern;
-		Form* form;
-		form = Intern.makeForm(" JUSTINbb", "Julia");
-		delete form;
-	} catch ( std::exception & e) {
+	try
+	{
+		Intern someRandomIntern;
+		AForm *rrf;
+		rrf = someRandomIntern.makeForm(" creation", "Bender");
+		delete rrf;
+	}
+	catch (std::exception &e)
+	{
 		std::cout << e.what() << std::endl;
 	}
 	std::cout << std::endl;
-	std::cout << std::endl;
-	std::cout << std::endl;
-	try	{
-		std::cout << " ** TEST EMPTY TARGET **\n" << std::endl;
-
-		Intern Intern;
-		Form* form;
-		form = Intern.makeForm(" JUSTINbb", "");
-		delete form;
-	} catch ( std::exception & e) {
+	try
+	{
+		Intern someRandomIntern;
+		AForm *rrf;
+		rrf = someRandomIntern.makeForm(" creation", "");
+		delete rrf;
+	}
+	catch (std::exception &e)
+	{
 		std::cout << e.what() << std::endl;
 	}
 }
