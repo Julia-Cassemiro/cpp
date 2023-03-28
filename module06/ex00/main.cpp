@@ -60,6 +60,14 @@ void	convertToDouble( std::string str ) {
 		std::cout << "double: " << num << std::endl;
 }
 
+// Verifica se a string de entrada é composta por apenas um caractere e se esse caractere é uma letra do alfabeto (verifica-se isso usando a função isalpha da biblioteca padrão). Se essa condição for verdadeira, a função converte o caractere para seu valor ASCII correspondente usando static_cast e imprime o resultado na tela como um inteiro.
+
+// Caso a string de entrada não atenda à condição acima, a função tenta convertê-la em um long int usando a função atol da biblioteca padrão.
+
+// Se a conversão for bem-sucedida e o valor resultante estiver dentro dos limites do tipo inteiro (INT_MIN e INT_MAX), a função imprime o valor inteiro resultante na tela.
+
+// Caso contrário, se o valor inteiro estiver fora dos limites ou a conversão falhar, a função imprime "Impossible" na tela.
+
 void convertToInt(std::string str)
 {
 	// without cast will print string not integer

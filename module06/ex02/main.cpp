@@ -40,6 +40,8 @@ int main(void)
 	return 0;
 }
 
+//The generate function uses the rand function to generate a random number between 0 and 2,
+// and then returns an instance of A, B, or C depending on the random number generated:
 Base *generate(void)
 {
 	int num = std::rand() % 3;
@@ -52,6 +54,8 @@ Base *generate(void)
 		return new C();
 }
 
+//The identify function uses dynamic_cast to check the actual type of the object pointed to by the Base pointer
+// and prints the appropriate string
 void identify(Base *p)
 {
 	if (dynamic_cast<A *>(p))
@@ -90,7 +94,7 @@ void identify(Base &p)
 		std::cout << "C" << std::endl;
 		(void)c;
 	}
-	catch (...)
+	catch (...) //catch-all
 	{
 	}
 }
