@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 01:15:37 by jgomes-c          #+#    #+#             */
-/*   Updated: 2023/03/28 01:15:37 by jgomes-c         ###   ########.fr       */
+/*   Updated: 2023/04/11 03:55:06 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Array.hpp"
 
+//default constructor that initializes array size to zero and does not allocate memory
 template<typename T>
 Array<T>::Array( void ) {
 	std::cout << "default constructor called" << std::endl;
@@ -20,6 +21,7 @@ Array<T>::Array( void ) {
 	this->_size = 0;
 }
 
+//constructor that takes an integer as a parameter and allocates memory for the array with the specified size
 template<typename T>
 Array<T>::Array( unsigned int n ) {
 	std::cout << "unsigned int constructor called" << std::endl;
@@ -47,8 +49,7 @@ unsigned int	Array<T>::size( void ) const {
 }
 
 template<typename T>
-T& Array<T>::operator[]( int index ) {
-	/* std::cout << "subscript operator called" << std::endl; */
+T& Array<T>::operator[]( int index ) { // recebe como parâmetro um índice inteiro que representa a posição do elemento que se deseja acessar
 	if ( index < 0 || this->_size == 0 || static_cast<unsigned int>(index) >= this->_size )
 		throw Array<T>::IndexOutOfBoundsException();
 	return this->_array[index];

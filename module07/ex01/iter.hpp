@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:49:37 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2023/03/28 00:52:28 by jgomes-c         ###   ########.fr       */
+/*   Updated: 2023/04/11 03:07:53 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,19 @@
 #include <string.h>
 
 template<typename T>
-void	iter( T*  array, unsigned int size, void(*f)(T&) ) {
-	for ( unsigned i = 0; i < size; i++ )
-		f(array[i]);
+void	iter(T *arr, size_t size, void (*f)(T const &))
+{
+	for (size_t i = 0; i < size; i++)
+	{
+		f(arr[i]);
+	}
 }
 
 template<typename T>
-void	iter( T*  array, unsigned int size, void(*f)(T const&) ) {
-	for ( unsigned i = 0; i < size; i++ )
-		f(array[i]);
+void	print_something(T const &x)
+{
+	std::cout << x << std::endl;
 }
 
-
-template<typename T>
-void	whatever_print( T *target, unsigned int size ) {
-	for ( unsigned int i = 0; i < size; i++ )
-		std::cout << target[i] << " ";
-	std::cout<< std::endl;
-	return ;
-}
-
-template<typename T>
-void	increment( T &target ) {
-	target += 1;
-	return ;
-}
 
 #endif

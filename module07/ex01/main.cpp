@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 00:54:09 by jgomes-c          #+#    #+#             */
-/*   Updated: 2023/03/28 00:54:09 by jgomes-c         ###   ########.fr       */
+/*   Updated: 2023/04/01 18:00:11 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,51 +14,32 @@
 #include "iter.hpp"
 
 int	main( void ) {
-	char	str[] = "OTXMANOSP";
-	float	arrfloat[] = { 42.21, 21.42, 12.24};
-	int		arrint[] = { 24, 42, 21};
+	//string
+	{
+		std::string arr[] = {"hello", "world", "Ecole", "Teste"};
+		size_t size = sizeof(arr) / sizeof(arr[0]);
 
-	std::cout << "String before     : ";
-	whatever_print(str, strlen(str));
-	iter(str, 10, increment<char>);
-	std::cout << "String after      : ";
-	whatever_print(str, strlen(str));
+		iter(arr, size, &print_something);
+	}
+	//int
+	{
+		int	arr1[] = { 1, 2, 3, 4, 5 };
 
-	std::cout << "Float array before: ";
-	whatever_print(arrfloat, 3);
-	iter(arrfloat, 3, increment<float>);
-	std::cout << "Float array after : ";
-	whatever_print(arrfloat, 3);
+		std::cout << "arr1: " << std::endl;
+		iter(arr1, sizeof(arr1)/sizeof(arr1[0]), &print_something);
+	}
+	//double
+	{	double	arr2[] = { 1.5, 0.2, 3.82, 4.1, 9.5 };
 
-	std::cout << "Int array before  : ";
-	whatever_print(arrint, 3);
-	iter(arrint, 3, increment<int>);
-	std::cout << "Int array after   : ";
-	whatever_print(arrint, 3);
+		std::cout << "arr2: " << std::endl;
+		iter(arr2, sizeof(arr2)/sizeof(arr2[0]), &print_something);
+	}
+	//char
+	{
+		char	arr3[] = { 'J', 'u', '!', 'i', '4' };
 
-	return 0;
+		std::cout << "arr3: " << std::endl;
+		iter(arr3, sizeof(arr3)/sizeof(arr3[0]), &print_something);
+	}
+	return (0);
 }
-
-//class Awesome
-//{
-//  public:
-//    Awesome( void ) : _n( 42 ) { return; }
-//    int get( void ) const { return this->_n; }
-//  private:
-//    int _n;
-//};
-
-//std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) { o << rhs.get(); return o; }
-
-//template< typename T >
-//void print( T const & x ) { std::cout << x << std::endl; return; }
-
-//int main() {
-//  int tab[] = { 0, 1, 2, 3, 4 };  // <--- I never understood why you can't write int[] tab. Wouldn't that make more sense?
-//  Awesome tab2[5];
-
-//  iter( tab, 5, print<int> );
-//  iter( tab2, 5, print<Awesome> );
-
-//  return 0;
-//}

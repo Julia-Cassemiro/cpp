@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: coder <coder@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 00:54:15 by jgomes-c          #+#    #+#              #
-#    Updated: 2023/03/28 00:54:15 by jgomes-c         ###   ########.fr        #
+#    Updated: 2023/04/01 18:00:21 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CCP		=	c++
 RM		=	rm -rf
 P_GUARD	=	mkdir -p $(@D)
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g
-NAME	=	a.out
+NAME	=	ex01
 
 all:		$(NAME)
 

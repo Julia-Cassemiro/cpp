@@ -3,13 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 01:15:43 by jgomes-c          #+#    #+#             */
-/*   Updated: 2023/03/28 01:15:43 by jgomes-c         ###   ########.fr       */
+/*   Updated: 2023/04/11 04:03:53 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//O objetivo desse exercício é praticar a implementação de uma classe template que manipula arrays de elementos de um tipo T, 
+//de forma que o programa possa criar, copiar, atribuir e acessar esses elementos de maneira segura, 
+//sem correr o risco de acessar memória não alocada ou alterar elementos de outros arrays sem intenção. 
+//Além disso, é importante que a classe implemente a verificação de índices fora dos limites do array, 
+//garantindo que o programa não falhe ou exiba resultados incorretos devido a esse tipo de erro.
 
 #include <cstdlib>
 #include "Array.hpp"
