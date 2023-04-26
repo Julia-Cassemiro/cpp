@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 12:09:44 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2023/03/29 01:08:34 by jgomes-c         ###   ########.fr       */
+/*   Updated: 2023/04/26 02:14:11 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class NotFoundException : public std::exception { //uma classe NotFoundException
 
 template<typename T>
 typename T::iterator easyfind( T& container, int i ) {
-	typename T::iterator	it; //iterator 
+	typename T::iterator	it; //iterator, com ele é possivel caminhar pelo container
 
 	it = std::find( container.begin(), container.end(), i ); //std::find" é utilizada para procurar o valor "i" dentro do container "container", usando os iterators "begin()" e "end()" para delimitar a busca
 	if (it == container.end())
