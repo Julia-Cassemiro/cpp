@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 15:33:13 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2023/04/26 03:11:17 by coder            ###   ########.fr       */
+/*   Updated: 2023/04/26 03:35:55 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int main()
 {
 	{
 		Span sp = Span(12);
-		sp.addNumber(6);
-		sp.addNumber(3);
-		sp.addNumber(17);
-		sp.addNumber(9);
+		sp.addNumber(2);
+		sp.addNumber(5);
+		sp.addNumber(7);
 		sp.addNumber(11);
+		sp.addNumber(45);
 		std::cout << "min: " << sp.shortestSpan() << std::endl;
 		std::cout << "max: " << sp.longestSpan() << std::endl;
 
@@ -87,7 +87,21 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 	std::cout << std::endl;
-
+	try
+	{
+		Span sp = Span(5);
+		sp.addNumber(6);
+		sp.addNumber(3);
+		sp.addNumber(17);
+		sp.addNumber(9);
+		sp.addNumber(11);
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
 	return 0;
 }

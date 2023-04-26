@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 14:58:55 by lpaulo-d          #+#    #+#             */
-/*   Updated: 2023/04/26 03:09:31 by coder            ###   ########.fr       */
+/*   Updated: 2023/04/26 03:34:04 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,30 @@ void	Span::addNumber( std::vector<int>::iterator begin, std::vector<int>::iterat
 int		Span::shortestSpan( void ) {
 	if (this->_numbers.size() < 2)
 		throw Span::EmptyException();
-	std::vector<int>::iterator min = std::min_element(this->_numbers.begin(), this->_numbers.end());
-	return *min;
+
+	std::vector<int> allNumbers = _numbers;
+    std::sort(allNumbers.begin(), allNumbers.end()); // sort order crescent
+
+    int shortestSpan = std::abs(allNumbers[0] - allNumbers[1]); // 3 - 6 = 3
+    for (size_t i = 2; i < allNumbers.size(); i++) {
+        int span = std::abs(allNumbers[i] - allNumbers[i - 1]); // 9 - 6 = 3 || 11 - 9 = 2 || 17 - 9 = 8
+        if (span < shortestSpan)
+            shortestSpan = span;
+    }
+
+    return shortestSpan;
+	
 }
 
 int		Span::longestSpan( void ) {
 	if (this->_numbers.size() < 2)
 		throw Span::EmptyException();
-	std::vector<int>::iterator max = std::max_element(this->_numbers.begin(), this->_numbers.end());
-	return *max;
+
+	int min = *std::min_element(_numbers.begin(), _numbers.end());
+    int max = *std::max_element(_numbers.begin(), _numbers.end());
+
+    return std::abs(max - min);
+
 }
 
 const char* Span::FullException::what() const throw() {
