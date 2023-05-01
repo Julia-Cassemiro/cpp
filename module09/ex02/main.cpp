@@ -5,25 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/30 08:10:10 by jgomes-c          #+#    #+#             */
-/*   Updated: 2023/05/01 06:14:50 by jgomes-c         ###   ########.fr       */
+/*   Created: 2023/05/01 06:14:19 by jgomes-c          #+#    #+#             */
+/*   Updated: 2023/05/01 07:18:20 by jgomes-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#include "PmergeMe.hpp"
 
-int main(int argc, char *argv[]){
-	RPN obj;
-	if(argc != 2){
+int main( int argc, char **argv ){
+	if (argc < 2){
 		std::cout << "Error: Is necessary 2 arguments\n" << std::endl;
-		return 0;
+		return 1;
 	}
-	 try
-        {
-            obj.ReadInput(argv[1]);
-        }
-        catch(const std::exception& e)
-        {
-            std::cout << e.what();
-        }
+	if (CheckInput(argc, argv) == false) {
+		return 1;
+	}
+	PmergeMe(argc, argv);
+	return 0;
 }

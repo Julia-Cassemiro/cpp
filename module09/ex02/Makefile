@@ -5,22 +5,21 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jgomes-c <jgomes-c@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/30 08:09:52 by jgomes-c          #+#    #+#              #
-#    Updated: 2023/05/01 05:30:56 by jgomes-c         ###   ########.fr        #
+#    Created: 2023/05/01 05:30:28 by jgomes-c          #+#    #+#              #
+#    Updated: 2023/05/01 07:18:44 by jgomes-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
 OBJDIR	=	obj/
 
-F_FILE	=	main.cpp RPN.cpp 
+F_FILE	=	main.cpp PmergeMe.cpp 
 OBJ		=	$(F_FILE:%.cpp=$(OBJDIR)%.o)
 
 CCP		=	c++
 RM		=	rm -rf
 P_GUARD	=	mkdir -p $(@D)
 CFLAGS	=	-Wall -Wextra -Werror -I -std=c++98 -g
-NAME	=	RPN
+NAME	=	PmergeMe
 
 all:		$(NAME)
 
